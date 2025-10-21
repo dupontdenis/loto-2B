@@ -2,7 +2,7 @@ const container = document.querySelector(".container");
 const choices = document.querySelector(".choices");
 
 const handleSelect = function (event) {
-  const targetElement = event.target; // span ou li ou ul
+  const targetElement = event.target; 
 
   if (targetElement.closest("div")) {
     const selectedDiv = targetElement.closest(".container > div");
@@ -13,8 +13,8 @@ const handleSelect = function (event) {
     );
     // Update choices display
     choices.textContent = Array.from(selectedElements)
-      .map((el) => el.getAttribute("data-value"))
-      .sort((a, b) => a - b)
+      .map((el) => el.getAttribute("data-value")) // return a string like "3"
+      .sort() 
       .join(", ");
   }
 };
