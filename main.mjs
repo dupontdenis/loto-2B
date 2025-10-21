@@ -14,7 +14,6 @@ const handleSelect = function (event) {
     // Update choices display
     choices.textContent = Array.from(selectedElements)
       .map((el) => el.getAttribute("data-value")) // return a string like "3"
-      .sort()
       .join(", ");
   }
 };
