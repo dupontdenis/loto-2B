@@ -1,0 +1,22 @@
+const container = document.querySelector(".container");
+const choices = document.querySelector(".choices");
+
+const handleSelect = function (event) {
+  const targetElement = event.target; // span ou li ou ul
+
+  if (targetElement.closest("div")) {
+    const selectedDiv = targetElement.closest(".container > div");
+    // Toggle selected class
+    selectedDiv.classList.toggle("selected");
+    const selectedNumbers = document.querySelectorAll(
+      ".container > div.selected"
+    );
+    // Update choices display
+    choices.textContent = Array.from(selectedNumbers)
+      .map((el) => el.getAttribute("data-value"))
+      .sort((a, b) => a - b)
+      .join(", ");
+  }
+};
+
+container.addEventListener("click", handleSelect, false);
