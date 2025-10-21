@@ -8,11 +8,11 @@ const handleSelect = function (event) {
     const selectedDiv = targetElement.closest(".container > div");
     // Toggle selected class
     selectedDiv.classList.toggle("selected");
-    const selectedNumbers = document.querySelectorAll(
+    const selectedElements = document.querySelectorAll(
       ".container > div.selected"
     );
     // Update choices display
-    choices.textContent = Array.from(selectedNumbers)
+    choices.textContent = Array.from(selectedElements)
       .map((el) => el.getAttribute("data-value"))
       .sort((a, b) => a - b)
       .join(", ");
